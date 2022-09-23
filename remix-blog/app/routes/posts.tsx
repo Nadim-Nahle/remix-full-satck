@@ -1,5 +1,12 @@
+import { Outlet } from "@remix-run/react";
+
 function Posts() {
-  return <div>this is the posts route</div>;
+  return (
+    <div>
+      <h1>this is the posts route</h1>
+      <Outlet />
+    </div>
+  );
 }
 
 export default Posts;
