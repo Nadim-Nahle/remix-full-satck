@@ -22,22 +22,19 @@ const Login = () => {
     }));
   };
 
-  const handleClick = () => {
-    console.log("hh");
-  };
-
   return (
     <Layout>
       <div className="h-full flex justify-center items-center flex-col gap-y-4">
         <button
-          onClick={handleClick}
+          onClick={() => setAction(action == "login" ? "register" : "login")}
           className="absolute top-8 right-8 rounded-xl bg-yellow-300 font-semibold text-blue-600 px-3 py-2 transition duration-300 ease-in-out hover:bg-yellow-400 hover:-translate-y-1"
         >
-          login
+          {action == "login" ? "Sign Up" : "Sign in"}
         </button>
         <h2 className="text-5xl font-extrabold text-yellow-300">
           Welcome to Remix!
         </h2>
+
         <p className="font-semibold text-slate-300">
           {action == "login" ? "Please Sign In" : "please Sign Up"}
         </p>
