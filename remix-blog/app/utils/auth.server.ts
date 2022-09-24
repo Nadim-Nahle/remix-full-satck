@@ -1,4 +1,4 @@
-import { createCookieSessionStorage, json } from '@remix-run/node'
+import { createCookieSessionStorage, json, redirect } from '@remix-run/node'
 import {prisma} from './prisma.server'
 import type { LoginForm, RegisterForm } from './types.server'
 import { CreateUser } from './users.server'
@@ -60,4 +60,14 @@ export const login = async (form: LoginForm) =>{
     }
 
     return null;
+}
+
+export const createUserSession = async (userId: string, redirectTo:string) =>{
+    const session = await storage.getSession();
+    session.set('userId', userId)
+    return redirect(redirectTo,{
+        headers:{
+            'set-cookie': await storage.commitSession(session),
+        }
+    } )
 }
