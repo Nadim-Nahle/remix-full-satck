@@ -2,7 +2,7 @@ import Layout from "~/components/layout";
 import FormField from "~/components/form-field";
 import React, { useState } from "react";
 
-function Login() {
+const Login = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -22,13 +22,19 @@ function Login() {
     }));
   };
 
+  const handleClick = () => {
+    console.log("hh");
+  };
+
   return (
     <Layout>
       <div className="h-full flex justify-center items-center flex-col gap-y-4">
         <button
-          onClick={() => setAction(action == "login" ? "register" : "login")}
+          onClick={handleClick}
           className="absolute top-8 right-8 rounded-xl bg-yellow-300 font-semibold text-blue-600 px-3 py-2 transition duration-300 ease-in-out hover:bg-yellow-400 hover:-translate-y-1"
-        ></button>
+        >
+          login
+        </button>
         <h2 className="text-5xl font-extrabold text-yellow-300">
           Welcome to Remix!
         </h2>
@@ -50,7 +56,7 @@ function Login() {
             onChange={(e) => handleInputChange(e, "password")}
           />
 
-          {action != "login" ? (
+          {action == "register" ? (
             <>
               <FormField
                 htmlFor="firstName"
@@ -78,6 +84,6 @@ function Login() {
       </div>
     </Layout>
   );
-}
+};
 
 export default Login;
