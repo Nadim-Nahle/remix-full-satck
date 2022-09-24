@@ -1,7 +1,13 @@
 import Layout from "~/components/layout";
 import FormField from "~/components/form-field";
+import { useState } from "react";
 
 function Login() {
+  const [formData, setFormData] = useState({
+    email: "",
+    passowrd: "",
+  });
+
   return (
     <Layout>
       <div className="h-full flex justify-center items-center flex-col gap-y-4">
