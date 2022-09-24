@@ -1,5 +1,7 @@
-import { LoaderFunction } from "@remix-run/node";
+import type { LoaderFunction } from "@remix-run/node";
+import Layout from "~/components/layout";
 import { requireUserId } from "~/utils/auth.server";
+import { UserPanel } from "~/components/user-panel";
 
 export const loader: LoaderFunction = async ({ request }) => {
   await requireUserId(request);
@@ -8,9 +10,11 @@ export const loader: LoaderFunction = async ({ request }) => {
 
 function home() {
   return (
-    <div className="h-screen w=full bg-slate-600">
-      <h2 className="font-bold text-5xl text-blue-400">Home Page</h2>
-    </div>
+    <Layout>
+      <div className="h-full flex">
+        <UserPanel />
+      </div>
+    </Layout>
   );
 }
 

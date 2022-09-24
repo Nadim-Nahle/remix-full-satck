@@ -1,4 +1,4 @@
-export function userPanel() {
+export function UserPanel() {
   return (
     <div className="w-1/6 bg-gray-200 flex flex-col">
       <div className="text-center bg-gray-300 h-200 flex items-center justify-center">
