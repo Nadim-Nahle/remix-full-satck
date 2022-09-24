@@ -1,4 +1,5 @@
 import Layout from "~/components/layout";
+import FormField from "~/components/form-field";
 
 function Login() {
   return (
@@ -10,23 +11,13 @@ function Login() {
         <p className="font-semibold text-slate-300">Please Login</p>
 
         <form className="rounded-2xl bg-gray-200 p-6 w-96">
-          <label htmlFor="email" className="text-blue-600 font-semibold">
-            Email
-          </label>
-          <input
-            type="text"
-            id="email"
-            name="email"
-            className="w-full p-2 rounded-xl my-2"
-          />
-          <label htmlFor="password" className="text-blue-600 font-semibold">
-            password
-          </label>
-          <input
+          <FormField htmlFor="email" label="Email" value={} onChange={} />
+          <FormField
             type="password"
-            id="password"
-            name="password"
-            className="w-full p-2 rounded-xl my-2"
+            htmlFor="password"
+            label="Password"
+            value={}
+            onChange={}
           />
           <div className="w-full text-center">
             <input
