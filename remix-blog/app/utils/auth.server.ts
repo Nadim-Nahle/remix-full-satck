@@ -1,6 +1,7 @@
 import { json } from '@remix-run/node'
 import {prisma} from './prisma.server'
-import { RegisterForm } from './types.server'
+import type { RegisterForm } from './types.server'
+import { CreateUser } from './users.server'
 
 export const register = async (form: RegisterForm) => {
     const exists = await prisma.user.count({where: {email: form.email}})
@@ -15,4 +16,18 @@ export const register = async (form: RegisterForm) => {
             }
         )
     }
+
+    const newUser = await CreateUser(form)
+
+    if(!newUser) {
+        return json({
+             error: 'error, something went wrong',
+             fields: {email: form.email, password: form.password}
+        },
+        {
+            status: 400
+        }
+        )
+    }
+    return null
 }
