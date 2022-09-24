@@ -76,7 +76,7 @@ const Login = () => {
         <p className="font-semibold text-slate-300">
           {action == "login" ? "Please Sign In" : "please Sign Up"}
         </p>
-        <form className="rounded-2xl bg-gray-200 p-6 w-96">
+        <form method="post" className="rounded-2xl bg-gray-200 p-6 w-96">
           <FormField
             htmlFor="email"
             label="Email"
