@@ -1,6 +1,31 @@
 import Layout from "~/components/layout";
 import FormField from "~/components/form-field";
 import React, { useState } from "react";
+import { ActionFunction, json } from "@remix-run/node";
+
+export const action: ActionFunction = async ({ request }) => {
+  const form = await request.formData();
+  const action = form.get("_action");
+  const email = form.get("email");
+  const password = form.get("password");
+  let firstName = form.get("firstName");
+  let lastName = form.get("lastName");
+
+  if (
+    typeof action != "string" ||
+    typeof email != "string" ||
+    typeof password != "string"
+  ) {
+    return json({ error: "invalid form data", form: action }, { status: 400 });
+  }
+
+  if (
+    action == "register" &&
+    (typeof firstName != "string" || typeof lastName != "string")
+  ) {
+    return json({ error: "invalid form data", form: action }, { status: 400 });
+  }
+};
 
 const Login = () => {
   const [formData, setFormData] = useState({
