@@ -1,7 +1,7 @@
 import { Profile } from "@prisma/client";
 
 interface props {
-  profile: Profile[];
+  profile: Profile;
   className?: string;
   onClick?: (...args: any) => any;
 }

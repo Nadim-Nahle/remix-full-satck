@@ -20,14 +20,12 @@ export const CreateUser = async (user: RegisterForm) => {
 export const getOtherUsers = async (userId: string) =>{
     return await prisma.user.findMany({
         where:{
-            id: {
-                not: userId
-            },
+            id: {not: userId},
         },
-            orderBy:{
-                profile:{
-                    firstName: "asc",
-                }
+        orderBy:{
+            profile:{
+                firstName: "asc",
             }
+        }
     }); 
 }
