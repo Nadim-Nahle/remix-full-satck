@@ -1,4 +1,10 @@
+import { redirect } from "@remix-run/node";
 import { Link } from "@remix-run/react";
+
+export const action = () => {
+  console.log(123);
+  return redirect("/posts");
+};
 
 function NewPost() {
   return (
