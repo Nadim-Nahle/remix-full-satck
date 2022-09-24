@@ -43,6 +43,24 @@ function Login() {
             value={formData.password}
             onChange={(e) => handleInputChange(e, "password")}
           />
+
+          {action != "login" ? (
+            <>
+              <FormField
+                htmlFor="email"
+                label="Email"
+                value={formData.email}
+                onChange={(e) => handleInputChange(e, "email")}
+              />
+              <FormField
+                type="password"
+                htmlFor="password"
+                label="Password"
+                value={formData.password}
+                onChange={(e) => handleInputChange(e, "password")}
+              />
+            </>
+          ) : null}
           <div className="w-full text-center">
             <input
               type="submit"
