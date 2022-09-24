@@ -19,6 +19,11 @@ export const loader = () => {
         title: "post 3",
         body: "test post",
       },
+      {
+        id: 4,
+        title: "post 4",
+        body: "test post",
+      },
     ],
   };
   return data;
