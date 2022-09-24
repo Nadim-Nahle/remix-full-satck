@@ -6,6 +6,8 @@ function Login() {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
+    firstName: "",
+    lastName: "",
   });
 
   const [action, setAction] = useState("login");
@@ -47,17 +49,17 @@ function Login() {
           {action != "login" ? (
             <>
               <FormField
-                htmlFor="email"
-                label="Email"
-                value={formData.email}
-                onChange={(e) => handleInputChange(e, "email")}
+                htmlFor="firstName"
+                label="First Name"
+                value={formData.firstName}
+                onChange={(e) => handleInputChange(e, "firstName")}
               />
               <FormField
-                type="password"
-                htmlFor="password"
-                label="Password"
-                value={formData.password}
-                onChange={(e) => handleInputChange(e, "password")}
+                type="text"
+                htmlFor="lastName"
+                label="Last Name"
+                value={formData.lastName}
+                onChange={(e) => handleInputChange(e, "lastName")}
               />
             </>
           ) : null}
