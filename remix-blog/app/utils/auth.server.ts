@@ -13,7 +13,7 @@ const storage = createCookieSessionStorage({
     cookie:{
         name:'remix-session',
         secure: process.env.NODE_ENV == 'production',
-        secrets: [sessionSecret],
+        secrets: [secret],
         sameSite: 'lax',
         path: '/',
         maxAge: 60 * 60 * 24 * 30,
