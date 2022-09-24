@@ -3,6 +3,7 @@ import FormField from "~/components/form-field";
 import React, { useState } from "react";
 import { ActionFunction, json } from "@remix-run/node";
 import { login, register } from "~/utils/auth.server";
+import { useActionData } from "@remix-run/react";
 
 export const action: ActionFunction = async ({ request }) => {
   const form = await request.formData();
@@ -41,6 +42,9 @@ export const action: ActionFunction = async ({ request }) => {
 };
 
 const Login = () => {
+  const actionData = useActionData();
+  const [formError, setFormError] = useState(actionData?.error || "");
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -77,6 +81,9 @@ const Login = () => {
           {action == "login" ? "Please Sign In" : "please Sign Up"}
         </p>
         <form method="post" className="rounded-2xl bg-gray-200 p-6 w-96">
+          <div className="text-xs font-semibold text-center tracking-wide text-red-500 w-full">
+            {formError}
+          </div>
           <FormField
             htmlFor="email"
             label="Email"
