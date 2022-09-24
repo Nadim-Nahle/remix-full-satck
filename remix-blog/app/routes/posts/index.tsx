@@ -1,7 +1,6 @@
 import { Link, useLoaderData } from "@remix-run/react";
 
 export const loader = () => {
-  console.log(123);
   const data = {
     posts: [
       {

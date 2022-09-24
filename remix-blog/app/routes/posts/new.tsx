@@ -1,8 +1,12 @@
 import { redirect } from "@remix-run/node";
 import { Link } from "@remix-run/react";
 
-export const action = () => {
-  console.log(123);
+export const action = async ({ request }: any) => {
+  const form = await request.formData();
+  const title = form.get("title");
+  const body = form.get("body");
+  const fields = { title, body };
+  console.log(fields);
   return redirect("/posts");
 };
 
@@ -21,6 +25,8 @@ function NewPost() {
           <div className="form-control">
             <label htmlFor="title">Title</label>
             <input type="text" name="title" id="title" />
+          </div>
+          <div className="form-control">
             <label htmlFor="body">post body</label>
             <textarea name="body" id="body" />
           </div>
