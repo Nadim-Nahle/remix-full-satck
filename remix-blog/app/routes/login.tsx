@@ -8,6 +8,8 @@ function Login() {
     password: "",
   });
 
+  const [action, setAction] = useState("login");
+
   const handleInputChange = (
     event: React.ChangeEvent<HTMLInputElement>,
     field: string
