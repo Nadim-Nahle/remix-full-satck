@@ -71,11 +71,14 @@ const Login = () => {
             </>
           ) : null}
           <div className="w-full text-center">
-            <input
+            <button
               type="submit"
+              name="_action"
+              value={action}
               className="rounded-xl mt-2 bg-yellow-300 px-3 py-2 text-blue-600 font-semibold transition duration-300 ease-in-out hover:bg-yellow-400 hover:-translate-y-1"
-              value={action == "login" ? "Sign In" : "Sign Up"}
-            />
+            >
+              {action == "login" ? "Sign In" : "Sign Up"}
+            </button>
           </div>
         </form>
       </div>
