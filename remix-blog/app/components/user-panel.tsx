@@ -1,3 +1,8 @@
+import { User } from "@prisma/client";
+
+interface props {
+  users: User[];
+}
 export function UserPanel() {
   return (
     <div className="w-1/6 bg-gray-200 flex flex-col">
