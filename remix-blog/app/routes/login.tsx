@@ -5,7 +5,7 @@ import React, { useState } from "react";
 function Login() {
   const [formData, setFormData] = useState({
     email: "",
-    passowrd: "",
+    password: "",
   });
 
   const handleInputChange = (
@@ -25,20 +25,19 @@ function Login() {
           Welcome to Remix!
         </h2>
         <p className="font-semibold text-slate-300">Please Login</p>
-
         <form className="rounded-2xl bg-gray-200 p-6 w-96">
           <FormField
             htmlFor="email"
             label="Email"
             value={formData.email}
-            onChange={}
+            onChange={(e) => handleInputChange(e, "email")}
           />
           <FormField
             type="password"
             htmlFor="password"
             label="Password"
             value={formData.password}
-            onChange={}
+            onChange={(e) => handleInputChange(e, "password")}
           />
           <div className="w-full text-center">
             <input
