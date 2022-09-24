@@ -1,7 +1,11 @@
+import type { LinksFunction } from "@remix-run/node";
 import { Outlet, LiveReload, Link, Links } from "@remix-run/react";
-import globalStylesUrl from "~/styles/global.css";
 
-export const links = () => [{ rel: "stylesheet", href: globalStylesUrl }];
+import styles from "./styles/app.css";
+
+export const links: LinksFunction = () => {
+  return [{ rel: "stylesheet", href: styles }];
+};
 
 export default function App() {
   return (
