@@ -47,7 +47,7 @@ export const register = async (form: RegisterForm) => {
         }
         )
     }
-    return null
+    return createUserSession(newUser.id, '/');
 }
 
 export const login = async (form: LoginForm) =>{
@@ -59,7 +59,7 @@ export const login = async (form: LoginForm) =>{
         return json({error: 'incorrect credentials'}, {status: 400})
     }
 
-    return null;
+    return createUserSession(user.id, '/');
 }
 
 export const createUserSession = async (userId: string, redirectTo:string) =>{
