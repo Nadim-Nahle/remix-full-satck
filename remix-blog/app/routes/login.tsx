@@ -1,12 +1,22 @@
 import Layout from "~/components/layout";
 import FormField from "~/components/form-field";
-import { useState } from "react";
+import React, { useState } from "react";
 
 function Login() {
   const [formData, setFormData] = useState({
     email: "",
     passowrd: "",
   });
+
+  const handleInputChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+    field: string
+  ) => {
+    setFormData((form) => ({
+      ...form,
+      [field]: event.target.value,
+    }));
+  };
 
   return (
     <Layout>
@@ -17,12 +27,17 @@ function Login() {
         <p className="font-semibold text-slate-300">Please Login</p>
 
         <form className="rounded-2xl bg-gray-200 p-6 w-96">
-          <FormField htmlFor="email" label="Email" value={} onChange={} />
+          <FormField
+            htmlFor="email"
+            label="Email"
+            value={formData.email}
+            onChange={}
+          />
           <FormField
             type="password"
             htmlFor="password"
             label="Password"
-            value={}
+            value={formData.password}
             onChange={}
           />
           <div className="w-full text-center">
