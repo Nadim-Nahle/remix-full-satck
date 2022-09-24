@@ -1,8 +1,25 @@
-import { json } from '@remix-run/node'
+import { createCookieSessionStorage, json } from '@remix-run/node'
 import {prisma} from './prisma.server'
 import type { LoginForm, RegisterForm } from './types.server'
 import { CreateUser } from './users.server'
 import bcrypt from 'bcryptjs'
+
+const secret = process.env.SESSION_SECRET
+if(!secret){
+    throw new Error("SESSION SECRET IS NOT SET")
+}
+
+const storage = createCookieSessionStorage({
+    cookie:{
+        name:'remix-session',
+        secure: process.env.NODE_ENV == 'production',
+        secrets: [sessionSecret],
+        sameSite: 'lax',
+        path: '/',
+        maxAge: 60 * 60 * 24 * 30,
+        httpOnly: true,
+    }
+})
 
 export const register = async (form: RegisterForm) => {
     const exists = await prisma.user.count({where: {email: form.email}})
