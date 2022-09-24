@@ -101,3 +101,9 @@ export async function getUserId(
     return userId;
 }
 
+export async function getUser(request: Request){
+    const userId = await getUserId(request);
+    if(typeof userId != 'string'){
+        return null
+    }
+}
