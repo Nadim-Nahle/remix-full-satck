@@ -2,6 +2,7 @@ import { json, LoaderFunction, redirect } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import React, { useState } from "react";
 import { Modal } from "~/components/modal";
+import { SelectBox } from "~/components/select-box";
 import { UserCircle } from "~/components/user-circle";
 import { colorMap, emojiMap } from "~/utils/constants";
 import { getUserById } from "~/utils/users.server";
@@ -70,7 +71,11 @@ export default function KudoModal() {
               placeholder={`Say something since about ${recipient.profile.firstName}...`}
             />
             <div className="flex flex-col items-center md:flex-row md:justify-start gab-x-4">
-              {/*box here*/}
+              <SelectBox
+                options={colors}
+                name="backgroundColor"
+                value={formData.style.backgroundColor}
+              />
             </div>
           </div>
         </div>
