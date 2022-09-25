@@ -13,4 +13,9 @@ export const backgroundColorMap = {
     YELLOW: 'bg-yellow-300'
 }  
 
+export const emojiMap = {
+    THUMBSUP: '👍',
+    PARTY: '🎉',
+    HANDSUP:'🙌'
+}
 
