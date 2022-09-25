@@ -43,6 +43,36 @@ export const loader: LoaderFunction = async ({ request }) => {
     }
   }
 
+  let textFilter: Prisma.KudoWhereInput = {};
+  if (filter) {
+    textFilter = {
+      OR: [
+        {
+          message: {
+            mode: "insensitive",
+            contains: "filter",
+          },
+        },
+        {
+          author: {
+            OR: [
+              {
+                profile: {
+                  is: { firstName: { mode: "insensitive", contains: filter } },
+                },
+              },
+              {
+                profile: {
+                  is: { lastName: { mode: "insensitive", contains: filter } },
+                },
+              },
+            ],
+          },
+        },
+      ],
+    };
+  }
+
   const kudos = await getFilteredKudos(userId, {}, {});
   const recentKudos = await getRecentKudos();
   return json({ users, kudos, recentKudos });
