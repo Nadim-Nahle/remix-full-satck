@@ -1,9 +1,13 @@
+import { Profile } from "@prisma/client";
 import { useNavigate, useSearchParams } from "@remix-run/react";
 import { sortOptions } from "~/utils/constants";
 import { SelectBox } from "./select-box";
 import { UserCircle } from "./user-circle";
 
-export function SearchBar() {
+interface props {
+  profile: Profile;
+}
+export function SearchBar({ profile }: props) {
   let [searchParams] = useSearchParams();
   const navigate = useNavigate();
 

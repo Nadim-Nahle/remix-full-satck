@@ -76,7 +76,7 @@ export const loader: LoaderFunction = async ({ request }) => {
 
   const kudos = await getFilteredKudos(userId, sortOptions, textFilter);
   const recentKudos = await getRecentKudos();
-  return json({ users, kudos, recentKudos });
+  return json({ users, kudos, recentKudos, user });
 };
 
 interface KudoWithAuthor extends Ikudo {
@@ -86,14 +86,14 @@ interface KudoWithAuthor extends Ikudo {
 }
 
 export default function Home() {
-  const { users, kudos, recentKudos } = useLoaderData();
+  const { users, kudos, recentKudos, user } = useLoaderData();
   return (
     <Layout>
       <Outlet />
       <div className="h-full flex">
         <UserPanel users={users} />
         <div className="flex-1 flex flex-col">
-          <SearchBar />
+          <SearchBar profile={user.profile} />
           <div className="flex-1 flex">
             <div className="w-full p-10 flex flex-col gap-y-4">
               {kudos.map((kudo: KudoWithAuthor) => (
