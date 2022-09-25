@@ -1,4 +1,4 @@
-interface prps {
+interface props {
   options: {
     name: string;
     value: any;
@@ -11,4 +11,17 @@ interface prps {
   label?: string;
   value?: any;
   onChange?: (...args: any) => any;
+}
+
+export function SelectBox({
+  options = [],
+  onChange = () => {},
+  className = "",
+  containerClassName = "",
+  name,
+  id,
+  value,
+  label,
+}: props) {
+  return <div></div>;
 }
