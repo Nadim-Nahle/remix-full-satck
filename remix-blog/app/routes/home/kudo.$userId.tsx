@@ -49,12 +49,10 @@ export default function KudoModal() {
 
   const getOptions = (data: any) =>
     Object.keys(data).reduce((acc: any[], curr) => {
-      acc.push([
-        {
-          name: curr.charAt(0).toUpperCase() + curr.slice(1).toLowerCase(),
-          value: curr,
-        },
-      ]);
+      acc.push({
+        name: curr.charAt(0).toUpperCase() + curr.slice(1).toLowerCase(),
+        value: curr,
+      });
       return acc;
     }, []);
 
@@ -98,7 +96,6 @@ export default function KudoModal() {
                 className="w-full rounded-xl px-3 py-2 text-gray-400"
                 onChange={(e) => handleStyleChange(e, "backgroundColor")}
               />
-            <div className="flex flex-col items-center md:flex-row md:justify-start gab-x-4">
               <SelectBox
                 options={colors}
                 name="textColor"
@@ -108,12 +105,11 @@ export default function KudoModal() {
                 className="w-full rounded-xl px-3 py-2 text-gray-400"
                 onChange={(e) => handleStyleChange(e, "textColor")}
               />
-            <div className="flex flex-col items-center md:flex-row md:justify-start gab-x-4">
               <SelectBox
                 options={colors}
                 name="emojis"
                 value={formData.style.emoji}
-                label="Background Color"
+                label="Emoji"
                 containerClassName="w-36"
                 className="w-full rounded-xl px-3 py-2 text-gray-400"
                 onChange={(e) => handleStyleChange(e, "emojis")}
