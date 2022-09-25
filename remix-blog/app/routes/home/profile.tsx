@@ -65,7 +65,7 @@ export default function ProfileModal() {
         <div className="flex">
           <div className="w-1/3">{/*image uploader*/}</div>
           <div className="flex-1">
-            <form>
+            <form method="post">
               <FormField
                 htmlFor="firstName"
                 label="First Name"
