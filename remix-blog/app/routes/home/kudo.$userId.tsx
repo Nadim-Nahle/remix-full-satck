@@ -81,6 +81,10 @@ export default function KudoModal() {
                 options={colors}
                 name="backgroundColor"
                 value={formData.style.backgroundColor}
+                label="Background Color"
+                containerClassName="w-36"
+                className="w-full rounded-xl px-3 py-2 text-gray-400"
+                onChange={e => }
               />
             </div>
           </div>

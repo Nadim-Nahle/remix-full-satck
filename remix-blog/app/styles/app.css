@@ -656,6 +656,10 @@ video {
   width: 20rem;
 }
 
+.w-36 {
+  width: 9rem;
+}
+
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -909,6 +913,11 @@ video {
 .text-yellow-400 {
   --tw-text-opacity: 1;
   color: rgb(250 204 21 / var(--tw-text-opacity));
+}
+
+.text-gray-400 {
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity));
 }
 
 .transition {
