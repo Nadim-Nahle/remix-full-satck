@@ -15,6 +15,10 @@ export const loader: LoaderFunction = async ({ params }) => {
 };
 
 export default function KudoModal() {
+  const [formData, setFormData] = useState({
+    message: "",
+  });
+
   const { recipient } = useLoaderData();
   return (
     <Modal isOpen={true} className="w-2/3 p-10">
