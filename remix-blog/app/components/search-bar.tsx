@@ -29,6 +29,12 @@ export function SearchBar() {
         name="sort"
         options={sortOptions}
       />
+      <button
+        type="submit"
+        className="rounded-xl bg-yellow-300 font-semibold text-blue-600 px-3 py-2 transition duration-300 ease-in-out hover:bg-yellow-300 "
+      >
+        Search
+      </button>
     </form>
   );
 }
