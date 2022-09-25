@@ -39,8 +39,9 @@ type KudoStyle {
 }
 
 type Profile {
-  firstName String
-  lastName  String
+  firstName  String
+  lastName   String
+  department Department @default(MARKETING)
 }
 
 enum Emoji {

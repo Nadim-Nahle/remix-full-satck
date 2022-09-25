@@ -1,4 +1,5 @@
 import { ActionFunction, json, LoaderFunction } from "@remix-run/node";
+import { Department, Profile } from "@prisma/client";
 import { useLoaderData } from "@remix-run/react";
 import React, { useState } from "react";
 import FormField from "~/components/form-field";
@@ -25,6 +26,11 @@ export const action: ActionFunction = async ({ request }) => {
       ) {
         return json({ error: "Invalid form data" }, { status: 400 });
       }
+      await updateUser(userId, {
+        firstName,
+        lastName,
+        department: department as Department,
+      });
     }
     default:
       return json({ error: "invalid form data" }, { status: 400 });
