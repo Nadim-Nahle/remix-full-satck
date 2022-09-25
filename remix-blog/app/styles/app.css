@@ -688,6 +688,10 @@ video {
   width: 2.5rem;
 }
 
+.w-1\/5 {
+  width: 20%;
+}
+
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -770,6 +774,15 @@ video {
 
 .rounded-2xl {
   border-radius: 1rem;
+}
+
+.border-l-4 {
+  border-left-width: 4px;
+}
+
+.border-l-yellow-300 {
+  --tw-border-opacity: 1;
+  border-left-color: rgb(253 224 71 / var(--tw-border-opacity));
 }
 
 .bg-blue-600 {
