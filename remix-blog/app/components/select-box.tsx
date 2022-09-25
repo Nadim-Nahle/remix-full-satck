@@ -35,7 +35,13 @@ export function SelectBox({
           name={name}
           onChange={onChange}
           value={value || ""}
-        ></select>
+        >
+          {options.map((option) => (
+            <option key={option.name} value={option.value}>
+              {option.name}
+            </option>
+          ))}
+        </select>
       </div>
     </div>
   );
