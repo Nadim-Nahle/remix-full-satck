@@ -1,4 +1,12 @@
+import { redirect } from "@remix-run/node";
 import { Modal } from "~/components/modal";
+
+const loader: LoaderFunction = async ({ params }) => {
+  const { userId } = params;
+  if (typeof userId != "string") {
+    return redirect("/home");
+  }
+};
 
 export default function kudoModal() {
   return (
