@@ -18,6 +18,7 @@ export function UserPanel({ users }: props) {
             profile={user.profile}
             key={user.id}
             className="h-24 w-24 mx-auto flex-shrink-0"
+            onClick={() => navigate(`/home/kudo/${user.id}`)}
           />
         ))}
       </div>
