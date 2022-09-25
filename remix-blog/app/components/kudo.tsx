@@ -28,7 +28,7 @@ export function Kudo({ profile, kudo }: props) {
         <p
           className={`${
             colorMap[kudo.style?.textColor || "WHITE"]
-          } font-bold text-lg whitespace-pre-wrap break-all`}
+          }  whitespace-pre-wrap break-all`}
         >
           {kudo.message}
         </p>
