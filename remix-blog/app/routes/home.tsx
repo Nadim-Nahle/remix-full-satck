@@ -7,6 +7,7 @@ import { Outlet, useLoaderData } from "@remix-run/react";
 import { getFilteredKudos, getRecentKudos } from "~/utils/kudo.server";
 import { Kudo } from "~/components/kudo";
 import { Kudo as Ikudo, Profile } from "@prisma/client";
+import { RecentBar } from "~/components/recent-bar";
 
 export const loader: LoaderFunction = async ({ request }) => {
   const userId = await requireUserId(request);
@@ -23,7 +24,7 @@ interface KudoWithAuthor extends Ikudo {
 }
 
 export default function Home() {
-  const { users, kudos } = useLoaderData();
+  const { users, kudos, recentKudos } = useLoaderData();
   return (
     <Layout>
       <Outlet />
@@ -37,7 +38,7 @@ export default function Home() {
                 <Kudo key={kudo.id} kudo={kudo} profile={kudo.author.profile} />
               ))}
             </div>
-            {/*recent kudos*/}
+            <RecentBar kudos={recentKudos} />
           </div>
         </div>
       </div>
