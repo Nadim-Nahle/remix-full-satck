@@ -6,7 +6,7 @@ import { getOtherUsers } from "~/utils/users.server";
 import { Outlet, useLoaderData } from "@remix-run/react";
 import { getFilteredKudos, getRecentKudos } from "~/utils/kudo.server";
 import { Kudo } from "~/components/kudo";
-import { Kudo as Ikudo, Profile } from "@prisma/client";
+import { Kudo as Ikudo, Prisma, Profile } from "@prisma/client";
 import { RecentBar } from "~/components/recent-bar";
 import { SearchBar } from "~/components/search-bar";
 
@@ -17,6 +17,32 @@ export const loader: LoaderFunction = async ({ request }) => {
   const url = new URL(request.url);
   const sort = url.searchParams.get("sort");
   const filter = url.searchParams.get("filter");
+
+  let sortOptions: Prisma.KudoOrderByWithRelationInput = {};
+  if (sort) {
+    if (sort == "date") {
+      sortOptions = {
+        createdAt: "desc",
+      };
+    }
+    if (sort == "sender") {
+      sortOptions = {
+        author: {
+          profile: {
+            firstName: "asc",
+          },
+        },
+      };
+    }
+    if (sort == "emoji") {
+      sortOptions = {
+        style: {
+          emoji: "asc",
+        },
+      };
+    }
+  }
+
   const kudos = await getFilteredKudos(userId, {}, {});
   const recentKudos = await getRecentKudos();
   return json({ users, kudos, recentKudos });
