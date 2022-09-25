@@ -1,6 +1,6 @@
 import { ActionFunction, json, LoaderFunction } from "@remix-run/node";
 import { Department, Profile } from "@prisma/client";
-import { useLoaderData } from "@remix-run/react";
+import { useActionData, useLoaderData } from "@remix-run/react";
 import React, { useState } from "react";
 import FormField from "~/components/form-field";
 import { Modal } from "~/components/modal";
@@ -43,6 +43,8 @@ export const loader: LoaderFunction = async ({ request }) => {
 
 export default function ProfileModal() {
   const { user } = useLoaderData();
+  const actionData = useActionData();
+  const [formError, setFormError] = useState(actionData.error || "");
   const [formData, setFormData] = useState({
     firstName: user.profile.firstName,
     lastName: user.profile.lastName,
