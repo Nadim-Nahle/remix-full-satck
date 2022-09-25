@@ -3,7 +3,7 @@ import { useLoaderData } from "@remix-run/react";
 import { Modal } from "~/components/modal";
 import { getUserById } from "~/utils/users.server";
 
-const loader: LoaderFunction = async ({ params }) => {
+export const loader: LoaderFunction = async ({ params }) => {
   const { userId } = params;
   if (typeof userId != "string") {
     return redirect("/home");
