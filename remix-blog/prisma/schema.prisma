@@ -51,7 +51,7 @@ enum Emoji {
 
 enum Department {
   MARKETING
-  SALEs
+  SALES
   ENGINEERING
   HR
 }
