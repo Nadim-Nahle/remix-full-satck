@@ -13,6 +13,7 @@ import { SelectBox } from "~/components/select-box";
 import { UserCircle } from "~/components/user-circle";
 import { getUser, requireUserId } from "~/utils/auth.server";
 import { colorMap, emojiMap } from "~/utils/constants";
+import { createKudo } from "~/utils/kudo.server";
 import { getUserById } from "~/utils/users.server";
 
 export const action: ActionFunction = async ({ request }) => {
@@ -41,6 +42,8 @@ export const action: ActionFunction = async ({ request }) => {
   if (!recipientId.length) {
     return json({ error: "No Recipient Found..." }, { status: 400 });
   }
+
+  await createKudo;
 };
 
 export const loader: LoaderFunction = async ({ params, request }) => {
