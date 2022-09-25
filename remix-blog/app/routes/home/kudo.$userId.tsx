@@ -27,6 +27,17 @@ export default function KudoModal() {
     setFormData((form) => ({ ...form, [field]: e.target.value }));
   };
 
+  const getOptions = (data: any) =>
+    Object.keys(data).reduce((acc: any[], curr) => {
+      acc.push([
+        {
+          name: curr.charAt(0).toUpperCase() + curr.slice(1).toLowerCase(),
+          value: curr,
+        },
+      ]);
+      return acc;
+    }, []);
+
   const { recipient } = useLoaderData();
   return (
     <Modal isOpen={true} className="w-2/3 p-10">
