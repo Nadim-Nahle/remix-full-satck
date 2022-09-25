@@ -87,12 +87,14 @@ export default function ProfileModal() {
                 label="First Name"
                 value={formData.firstName}
                 onChange={(e) => handleInputChange(e, "firstName")}
+                error={actionData?.errors?.firstName}
               />
               <FormField
                 htmlFor="lastName"
                 label="Last Name"
                 value={formData.lastName}
                 onChange={(e) => handleInputChange(e, "lastName")}
+                error={actionData?.errors?.lastName}
               />
               <SelectBox
                 className="w-full rounded-xl px-3 py-2 text-gray-400"
