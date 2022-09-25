@@ -34,8 +34,21 @@ export default function KudoModal() {
               </span>
             )}
           </div>
-          <div className="flex-1 flex flex-col gap-y-4"></div>
+          <div className="flex-1 flex flex-col gap-y-4">
+            <textarea
+              name="message"
+              value={formData.message}
+              className="w-full rounded-xl h-40 p-4"
+              onChange={(e) => handleChange(e, "message")}
+              placeholder={`Say something since about %{recipient.profile.firstName}...`}
+            />
+            <div className="flex flex-col items-center md:flex-row md:justify-start gab-x-4">
+              {/*box here*/}
+            </div>
+          </div>
         </div>
+        <br />
+        <p className="text=blue-600 font-semibold mb-2">Preview</p>
       </form>
     </Modal>
   );
