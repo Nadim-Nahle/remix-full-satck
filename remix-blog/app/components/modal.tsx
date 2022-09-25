@@ -25,9 +25,9 @@ export const Modal: React.FC<props> = ({
         aria-modal="true"
         onClick={() => navigate("/home")}
       ></div>
-      <div className="fixed inset-0 pointers-events-none flex justify-center items-center overflow-scroll">
+      <div className="fixed inset-0 pointers-events-none flex justify-center items-center max-h-screen overflow-scroll">
         <div
-          className={`${className}bg-gray-200 pointers-events-auto max-h-screen md:rounded-xl `}
+          className={`${className} p-4 bg-gray-200 pointers-events-auto max-h-screen md:rounded-xl `}
         >
           {children}
         </div>
