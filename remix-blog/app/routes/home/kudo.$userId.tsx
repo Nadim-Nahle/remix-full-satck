@@ -48,6 +48,8 @@ export const action: ActionFunction = async ({ request }) => {
     textColor,
     emoji,
   } as KudoStyle);
+
+  return redirect("/home");
 };
 
 export const loader: LoaderFunction = async ({ params, request }) => {
