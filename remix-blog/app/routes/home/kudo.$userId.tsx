@@ -32,7 +32,11 @@ export const action: ActionFunction = async ({ request }) => {
     typeof textColor != "string" ||
     typeof emoji != "string"
   ) {
-    return json({ error: "invalid form data" }, { status: 400 });
+    return json({ error: "invalid Form Data" }, { status: 400 });
+  }
+
+  if (!message.length) {
+    return json({ error: "Please Provide A Message" }, { status: 400 });
   }
 };
 
