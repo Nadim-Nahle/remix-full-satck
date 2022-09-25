@@ -4,11 +4,13 @@ import { requireUserId } from "~/utils/auth.server";
 import { UserPanel } from "~/components/user-panel";
 import { getOtherUsers } from "~/utils/users.server";
 import { Outlet, useLoaderData } from "@remix-run/react";
+import { getFilteredKudos } from "~/utils/kudo.server";
 
 export const loader: LoaderFunction = async ({ request }) => {
   const userId = await requireUserId(request);
   const users = await getOtherUsers(userId);
-  return json({ users });
+  const kudos = await getFilteredKudos(userId, {}, {});
+  return json({ users, kudos });
 };
 
 export default function Home() {
