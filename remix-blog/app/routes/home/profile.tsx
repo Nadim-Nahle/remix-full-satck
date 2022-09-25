@@ -1,7 +1,7 @@
 import { ActionFunction, json, LoaderFunction } from "@remix-run/node";
 import { Department, Profile } from "@prisma/client";
 import { useActionData, useLoaderData } from "@remix-run/react";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import FormField from "~/components/form-field";
 import { Modal } from "~/components/modal";
 import { SelectBox } from "~/components/select-box";
@@ -45,11 +45,14 @@ export default function ProfileModal() {
   const { user } = useLoaderData();
   const actionData = useActionData();
   const [formError, setFormError] = useState(actionData.error || "");
+  const firstLoad = useRef(true);
   const [formData, setFormData] = useState({
     firstName: user.profile.firstName,
     lastName: user.profile.lastName,
     department: user.profile.department,
   });
+
+  useEffect(() => {}, []);
 
   const handleInputChange = (
     event: React.ChangeEvent<HTMLInputElement>,
