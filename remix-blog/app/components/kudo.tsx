@@ -1,5 +1,5 @@
 import { Profile, Kudo as IKudo } from "@prisma/client";
-import { backgroundColorMap, colorMap } from "~/utils/constants";
+import { backgroundColorMap, colorMap, emojiMap } from "~/utils/constants";
 import { UserCircle } from "./user-circle";
 
 interface props {
@@ -32,6 +32,9 @@ export function Kudo({ profile, kudo }: props) {
         >
           {kudo.message}
         </p>
+        <div className="absolute bottom-4 right-4 bg-white rounded-full h-10 w-10 flex items-center justify-center text-2xl">
+          {emojiMap[kudo.style?.emoji || "THUMBSUP"]}
+        </div>
       </div>
     </div>
   );
