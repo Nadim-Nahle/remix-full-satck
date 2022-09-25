@@ -36,3 +36,11 @@ enum Department {
   ENGINEERING
   HR
 }
+
+enum Color {
+  RED
+  GREEN
+  YELLOW
+  BLUE
+  WHITE
+}
