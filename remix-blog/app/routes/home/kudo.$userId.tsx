@@ -2,6 +2,7 @@ import { KudoStyle } from "@prisma/client";
 import { json, LoaderFunction, redirect } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import React, { useState } from "react";
+import { Kudo } from "~/components/kudo";
 import { Modal } from "~/components/modal";
 import { SelectBox } from "~/components/select-box";
 import { UserCircle } from "~/components/user-circle";
@@ -120,7 +121,7 @@ export default function KudoModal() {
         <br />
         <p className="text-blue-600 font-semibold mb-2">Preview</p>
         <div className="flex flex-col items-center md:flex-row gap-x-24 gap-y-2 md:gap-y-0">
-          {/*Preview here */}
+          <Kudo profile={user.profile} />
           <div className="flex-1" />
           <button className="rounded-xl bg-yellow-300 font-semibold text-blue-600 w-80 h-12 transition duration-300 ease-in-out hover:bg-yellow-400 hover:-translate-y-1">
             Send
