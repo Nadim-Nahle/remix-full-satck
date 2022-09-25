@@ -1,5 +1,10 @@
 import { KudoStyle } from "@prisma/client";
-import { json, LoaderFunction, redirect } from "@remix-run/node";
+import {
+  ActionFunction,
+  json,
+  LoaderFunction,
+  redirect,
+} from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import React, { useState } from "react";
 import { Kudo } from "~/components/kudo";
@@ -9,6 +14,10 @@ import { UserCircle } from "~/components/user-circle";
 import { getUser } from "~/utils/auth.server";
 import { colorMap, emojiMap } from "~/utils/constants";
 import { getUserById } from "~/utils/users.server";
+
+export const action: ActionFunction = async ({ request }) => {
+  const form = await request.formData();
+};
 
 export const loader: LoaderFunction = async ({ params, request }) => {
   const { userId } = params;
