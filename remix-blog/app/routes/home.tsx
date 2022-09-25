@@ -94,7 +94,7 @@ export default function Home() {
         <div className="flex-1 flex flex-col">
           <SearchBar />
           <div className="flex-1 flex">
-            <div className="w-full p-10 flex flex-col gap-y-p">
+            <div className="w-full p-10 flex flex-col gap-y-4">
               {kudos.map((kudo: KudoWithAuthor) => (
                 <Kudo key={kudo.id} kudo={kudo} profile={kudo.author.profile} />
               ))}
