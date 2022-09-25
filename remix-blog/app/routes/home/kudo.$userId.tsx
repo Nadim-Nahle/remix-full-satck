@@ -9,16 +9,22 @@ export const loader: LoaderFunction = async ({ params }) => {
     return redirect("/home");
   }
 
-  const user = await getUserById(userId);
-  return json({ user });
+  const recipient = await getUserById(userId);
+  return json({ recipient });
 };
 
 export default function KudoModal() {
-  const { user } = useLoaderData();
+  const { recipient } = useLoaderData();
   return (
-    <Modal isOpen={true}>
-      <h2>this is a modal</h2>
-      <h2>{user.profile.firstName}</h2>
+    <Modal isOpen={true} className="w-2/3 p-10">
+      <form method="post">
+        <input type="hidden" value={recipient.id} name="recipientId" />
+        <div className="flex flex-col md:flex-row gap-y-2 md:gapy-y-0">
+          <div className="text-center flex flex-col items-center gap-y-2 pr-8">
+            <userCircle > 
+          </div>
+        </div>
+      </form>
     </Modal>
   );
 }
