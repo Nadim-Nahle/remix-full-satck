@@ -44,7 +44,7 @@ export const loader: LoaderFunction = async ({ request }) => {
 export default function ProfileModal() {
   const { user } = useLoaderData();
   const actionData = useActionData();
-  const [formError, setFormError] = useState(actionData.error || "");
+  const [formError, setFormError] = useState(actionData?.error || "");
   const firstLoad = useRef(true);
   const [formData, setFormData] = useState({
     firstName: user.profile.firstName,
