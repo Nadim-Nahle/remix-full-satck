@@ -52,7 +52,7 @@ export default function KudoModal() {
               value={formData.message}
               className="w-full rounded-xl h-40 p-4"
               onChange={(e) => handleChange(e, "message")}
-              placeholder={`Say something since about %{recipient.profile.firstName}...`}
+              placeholder={`Say something since about ${recipient.profile.firstName}...`}
             />
             <div className="flex flex-col items-center md:flex-row md:justify-start gab-x-4">
               {/*box here*/}
@@ -60,7 +60,7 @@ export default function KudoModal() {
           </div>
         </div>
         <br />
-        <p className="text=blue-600 font-semibold mb-2">Preview</p>
+        <p className="text-blue-600 font-semibold mb-2">Preview</p>
         <div className="flex flex-col items-center md:flex-row gap-x-24 gap-y-2 md:gap-y-0">
           {/*Preview here */}
           <div className="flex-1" />
