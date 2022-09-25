@@ -6,17 +6,18 @@ import { Kudo } from "~/components/kudo";
 import { Modal } from "~/components/modal";
 import { SelectBox } from "~/components/select-box";
 import { UserCircle } from "~/components/user-circle";
+import { getUser } from "~/utils/auth.server";
 import { colorMap, emojiMap } from "~/utils/constants";
 import { getUserById } from "~/utils/users.server";
 
-export const loader: LoaderFunction = async ({ params }) => {
+export const loader: LoaderFunction = async ({ params, request }) => {
   const { userId } = params;
   if (typeof userId != "string") {
     return redirect("/home");
   }
-
+  const user = await getUser(request);
   const recipient = await getUserById(userId);
-  return json({ recipient });
+  return json({ recipient, user });
 };
 
 export default function KudoModal() {
