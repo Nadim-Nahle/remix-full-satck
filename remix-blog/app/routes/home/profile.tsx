@@ -6,6 +6,7 @@ import { Modal } from "~/components/modal";
 import { SelectBox } from "~/components/select-box";
 import handleRequest from "~/entry.server";
 import { getUser } from "~/utils/auth.server";
+import { departments } from "~/utils/constants";
 
 export const loader: LoaderFunction = async ({ request }) => {
   const user = await getUser(request);
@@ -47,7 +48,7 @@ export default function ProfileModal() {
                 htmlFor="lastName"
                 label="Last Name"
                 value={formData.lastName}
-                onChange={(e) => handleInputCahnge(e, "lastName")}
+                onChange={(e) => handleInputChange(e, "lastName")}
               />
               <SelectBox
                 className="w-full rounded-xl px-3 py-2 text-gray-400"
