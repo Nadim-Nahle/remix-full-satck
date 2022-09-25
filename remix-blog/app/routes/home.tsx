@@ -6,7 +6,7 @@ import { getOtherUsers } from "~/utils/users.server";
 import { Outlet, useLoaderData } from "@remix-run/react";
 import { getFilteredKudos } from "~/utils/kudo.server";
 import { Kudo } from "~/components/kudo";
-import {Kudo as Ikudo } from '@prisma/client'
+import { Kudo as Ikudo, Profile } from "@prisma/client";
 
 export const loader: LoaderFunction = async ({ request }) => {
   const userId = await requireUserId(request);
@@ -15,7 +15,11 @@ export const loader: LoaderFunction = async ({ request }) => {
   return json({ users, kudos });
 };
 
-interface KudoWithAuthor extends Ikudo
+interface KudoWithAuthor extends Ikudo {
+  author: {
+    profile: Profile;
+  };
+}
 
 export default function Home() {
   const { users, kudos } = useLoaderData();
