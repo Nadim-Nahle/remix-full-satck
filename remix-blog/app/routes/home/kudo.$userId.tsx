@@ -5,7 +5,7 @@ import {
   LoaderFunction,
   redirect,
 } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { useActionData, useLoaderData } from "@remix-run/react";
 import React, { useState } from "react";
 import { Kudo } from "~/components/kudo";
 import { Modal } from "~/components/modal";
@@ -38,6 +38,9 @@ export const action: ActionFunction = async ({ request }) => {
   if (!message.length) {
     return json({ error: "Please Provide A Message" }, { status: 400 });
   }
+  if (!recipientId.length) {
+    return json({ error: "No Recipient Found..." }, { status: 400 });
+  }
 };
 
 export const loader: LoaderFunction = async ({ params, request }) => {
@@ -51,6 +54,9 @@ export const loader: LoaderFunction = async ({ params, request }) => {
 };
 
 export default function KudoModal() {
+  const actionData = useActionData();
+  const [formError] = useState(actionData?.error || "");
+
   const [formData, setFormData] = useState({
     message: "",
     style: {
