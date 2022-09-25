@@ -29,3 +29,10 @@ enum Emoji {
   PARTY
   HANDSUP
 }
+
+enum Department {
+  MARKETING
+  SALEs
+  ENGINEERING
+  HR
+}
