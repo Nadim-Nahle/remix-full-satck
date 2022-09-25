@@ -11,12 +11,19 @@ import { Kudo } from "~/components/kudo";
 import { Modal } from "~/components/modal";
 import { SelectBox } from "~/components/select-box";
 import { UserCircle } from "~/components/user-circle";
-import { getUser } from "~/utils/auth.server";
+import { getUser, requireUserId } from "~/utils/auth.server";
 import { colorMap, emojiMap } from "~/utils/constants";
 import { getUserById } from "~/utils/users.server";
 
 export const action: ActionFunction = async ({ request }) => {
   const form = await request.formData();
+  const userId = await requireUserId(request);
+
+  const message = form.get("message");
+  const backgroundColor = form.get("backgroundColor");
+  const textColor = form.get("textColor");
+  const emoji = form.get("emoji");
+  const recipientId = form.get("recipientId");
 };
 
 export const loader: LoaderFunction = async ({ params, request }) => {
