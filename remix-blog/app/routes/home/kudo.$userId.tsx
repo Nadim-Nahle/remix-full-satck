@@ -3,6 +3,7 @@ import { useLoaderData } from "@remix-run/react";
 import React, { useState } from "react";
 import { Modal } from "~/components/modal";
 import { UserCircle } from "~/components/user-circle";
+import { colorMap, emojiMap } from "~/utils/constants";
 import { getUserById } from "~/utils/users.server";
 
 export const loader: LoaderFunction = async ({ params }) => {
@@ -37,6 +38,8 @@ export default function KudoModal() {
       ]);
       return acc;
     }, []);
+
+  const colors = getOptions(colorMap);
 
   const { recipient } = useLoaderData();
   return (
