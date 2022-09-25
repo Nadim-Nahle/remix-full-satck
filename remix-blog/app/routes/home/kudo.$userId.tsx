@@ -24,6 +24,16 @@ export const action: ActionFunction = async ({ request }) => {
   const textColor = form.get("textColor");
   const emoji = form.get("emoji");
   const recipientId = form.get("recipientId");
+
+  if (
+    typeof message != "string" ||
+    typeof recipientId != "string" ||
+    typeof backgroundColor != "string" ||
+    typeof textColor != "string" ||
+    typeof emoji != "string"
+  ) {
+    return json({ error: "invalid form data" }, { status: 400 });
+  }
 };
 
 export const loader: LoaderFunction = async ({ params, request }) => {
