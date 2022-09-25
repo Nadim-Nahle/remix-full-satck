@@ -43,7 +43,11 @@ export const action: ActionFunction = async ({ request }) => {
     return json({ error: "No Recipient Found..." }, { status: 400 });
   }
 
-  await createKudo;
+  await createKudo(message, userId, recipientId, {
+    backgroundColor,
+    textColor,
+    emoji,
+  } as KudoStyle);
 };
 
 export const loader: LoaderFunction = async ({ params, request }) => {
