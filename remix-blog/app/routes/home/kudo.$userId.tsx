@@ -1,5 +1,6 @@
 import { json, LoaderFunction, redirect } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
+import React, { useState } from "react";
 import { Modal } from "~/components/modal";
 import { UserCircle } from "~/components/user-circle";
 import { getUserById } from "~/utils/users.server";
@@ -18,6 +19,13 @@ export default function KudoModal() {
   const [formData, setFormData] = useState({
     message: "",
   });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    field: string
+  ) => {
+    setFormData((form) => ({ ...form, [field]: e.target.value }));
+  };
 
   const { recipient } = useLoaderData();
   return (
