@@ -1,6 +1,6 @@
 import { json, LoaderFunction } from "@remix-run/node";
 import Layout from "~/components/layout";
-import { requireUserId } from "~/utils/auth.server";
+import { getUser, requireUserId } from "~/utils/auth.server";
 import { UserPanel } from "~/components/user-panel";
 import { getOtherUsers } from "~/utils/users.server";
 import { Outlet, useLoaderData } from "@remix-run/react";
@@ -13,6 +13,7 @@ import { SearchBar } from "~/components/search-bar";
 export const loader: LoaderFunction = async ({ request }) => {
   const userId = await requireUserId(request);
   const users = await getOtherUsers(userId);
+  const user = await getUser(request);
 
   const url = new URL(request.url);
   const sort = url.searchParams.get("sort");
