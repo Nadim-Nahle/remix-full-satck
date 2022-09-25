@@ -34,6 +34,15 @@ export default function KudoModal() {
   ) => {
     setFormData((form) => ({ ...form, [field]: e.target.value }));
   };
+  const handleStyleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    field: string
+  ) => {
+    setFormData((form) => ({ ...form, style: {
+      ...form.style,
+      [field]: e.target.value
+    } }));
+  };
 
   const getOptions = (data: any) =>
     Object.keys(data).reduce((acc: any[], curr) => {
