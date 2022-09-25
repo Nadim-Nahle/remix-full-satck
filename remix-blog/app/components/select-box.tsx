@@ -23,5 +23,20 @@ export function SelectBox({
   value,
   label,
 }: props) {
-  return <div></div>;
+  return (
+    <div>
+      <label htmlFor={id} className="text-blue-600 font-semibold">
+        {label}
+      </label>
+      <div className={`flex items-center ${containerClassName} my-2`}>
+        <select
+          className={`${className} appearance-none`}
+          id={id}
+          name={name}
+          onChange={onChange}
+          value={value || ""}
+        ></select>
+      </div>
+    </div>
+  );
 }
