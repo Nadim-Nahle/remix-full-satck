@@ -18,6 +18,13 @@ export default function Home() {
       <Outlet />
       <div className="h-full flex">
         <UserPanel users={users} />
+        <div className="flex-1 flex flex-col">
+          {/*search bar*/}
+          <div className="flex-1 flex">
+            <div className="w-full p-10 flex flex-col gap-y-p"></div>
+            {/*recent kudos*/}
+          </div>
+        </div>
       </div>
     </Layout>
   );
