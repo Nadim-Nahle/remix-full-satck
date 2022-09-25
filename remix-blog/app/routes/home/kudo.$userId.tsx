@@ -1,3 +1,4 @@
+import { KudoStyle } from "@prisma/client";
 import { json, LoaderFunction, redirect } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import React, { useState } from "react";
@@ -20,6 +21,11 @@ export const loader: LoaderFunction = async ({ params }) => {
 export default function KudoModal() {
   const [formData, setFormData] = useState({
     message: "",
+    style: {
+      backgroundColor: "RED",
+      textColor: "WHITE",
+      emoji: "THUMBSUP",
+    } as KudoStyle,
   });
 
   const handleChange = (
