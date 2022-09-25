@@ -49,6 +49,11 @@ export default function KudoModal() {
         </div>
         <br />
         <p className="text=blue-600 font-semibold mb-2">Preview</p>
+        <div className="flex flex-col items-center md:flex-row gap-x-24 gap-y-2 md:gap-y-0">
+          {/*Preview here */}
+          <div className="flex-1" />
+          <button className="rounded-xl"></button>
+        </div>
       </form>
     </Modal>
   );

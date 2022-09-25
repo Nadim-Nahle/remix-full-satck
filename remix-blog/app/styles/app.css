@@ -684,6 +684,11 @@ video {
   row-gap: 0.5rem;
 }
 
+.gap-x-24 {
+  -moz-column-gap: 6rem;
+       column-gap: 6rem;
+}
+
 .overflow-scroll {
   overflow: scroll;
 }
@@ -885,6 +890,10 @@ video {
 
   .md\:justify-start {
     justify-content: flex-start;
+  }
+
+  .md\:gap-y-0 {
+    row-gap: 0px;
   }
 
   .md\:rounded-xl {
