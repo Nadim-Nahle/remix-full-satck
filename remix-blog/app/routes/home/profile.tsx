@@ -7,14 +7,28 @@ import { SelectBox } from "~/components/select-box";
 import { getUser, requireUserId } from "~/utils/auth.server";
 import { departments } from "~/utils/constants";
 
-export const action: ActionFunction;= async ({request}) => {
-    const userId = await requireUserId(request)
-    const form = await request.formData();
-    const action = form.get("_action");
-    let department = form.get("department");
-    let firstName = form.get("firstName");
-    let lastName = form.get("lastName");
-}
+export const action: ActionFunction = async ({ request }) => {
+  const userId = await requireUserId(request);
+  const form = await request.formData();
+  const action = form.get("_action");
+  let department = form.get("department");
+  let firstName = form.get("firstName");
+  let lastName = form.get("lastName");
+
+  switch (action) {
+    case "save": {
+      if (
+        typeof firstName != "string" ||
+        typeof lastName != "string" ||
+        typeof department != "string"
+      ) {
+        return json({ error: "Invalid form data" }, { status: 400 });
+      }
+    }
+    default:
+      return json({ error: "invalid form data" }, { status: 400 });
+  }
+};
 export const loader: LoaderFunction = async ({ request }) => {
   const user = await getUser(request);
   return json({ user });
