@@ -3,6 +3,7 @@ import { useLoaderData } from "@remix-run/react";
 import FormField from "~/components/form-field";
 import { Modal } from "~/components/modal";
 import { SelectBox } from "~/components/select-box";
+import handleRequest from "~/entry.server";
 import { getUser } from "~/utils/auth.server";
 
 export const loader: LoaderFunction = async ({ request }) => {
@@ -23,9 +24,27 @@ export default function ProfileModal() {
           <div className="w-1/3">{/*image uploader*/}</div>
           <div className="flex-1">
             <form>
-              <FormField />
-              <FormField />
-              <SelectBox />
+              <FormField
+                htmlFor="firstName"
+                label="First Name"
+                value={formData.firstName}
+                onChange={(e) => handleInputCahnge(e, "firstName")}
+              />
+              <FormField
+                htmlFor="lastName"
+                label="Last Name"
+                value={formData.lastName}
+                onChange={(e) => handleInputCahnge(e, "lastName")}
+              />
+              <SelectBox
+                className="w-full rounded-xl px-3 py-2 text-gray-400"
+                id="department"
+                label="Department"
+                name="department"
+                options={department}
+                value={FormData.department}
+                onChange={(e) => handleInputChange(e, "department")}
+              />
             </form>
           </div>
         </div>
