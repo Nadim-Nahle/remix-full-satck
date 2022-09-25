@@ -1,4 +1,4 @@
-import { LoaderFunction } from "@remix-run/node";
+import { json, LoaderFunction } from "@remix-run/node";
 import { Modal } from "~/components/modal";
 import { getUser } from "~/utils/auth.server";
 
