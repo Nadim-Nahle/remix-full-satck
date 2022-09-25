@@ -73,7 +73,7 @@ export const loader: LoaderFunction = async ({ request }) => {
     };
   }
 
-  const kudos = await getFilteredKudos(userId, {}, {});
+  const kudos = await getFilteredKudos(userId, sortOptions, textFilter);
   const recentKudos = await getRecentKudos();
   return json({ users, kudos, recentKudos });
 };
