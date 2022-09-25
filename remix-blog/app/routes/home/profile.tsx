@@ -2,6 +2,7 @@ import { json, LoaderFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import FormField from "~/components/form-field";
 import { Modal } from "~/components/modal";
+import { SelectBox } from "~/components/select-box";
 import { getUser } from "~/utils/auth.server";
 
 export const loader: LoaderFunction = async ({ request }) => {
@@ -23,6 +24,8 @@ export default function ProfileModal() {
           <div className="flex-1">
             <form>
               <FormField />
+              <FormField />
+              <SelectBox />
             </form>
           </div>
         </div>
