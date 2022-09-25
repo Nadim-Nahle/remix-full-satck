@@ -23,3 +23,9 @@ type Profile {
   firstName String
   lastName  String
 }
+
+enum Emoji {
+  THUMBSUP
+  PARTY
+  HANDSUP
+}
