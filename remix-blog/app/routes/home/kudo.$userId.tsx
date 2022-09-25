@@ -61,7 +61,7 @@ export default function KudoModal() {
   const colors = getOptions(colorMap);
   const emojis = getOptions(emojiMap);
 
-  const { recipient } = useLoaderData();
+  const { recipient, user } = useLoaderData();
   return (
     <Modal isOpen={true} className="w-2/3 p-10">
       <form method="post">
@@ -108,7 +108,7 @@ export default function KudoModal() {
                 onChange={(e) => handleStyleChange(e, "textColor")}
               />
               <SelectBox
-                options={colors}
+                options={emojis}
                 name="emojis"
                 value={formData.style.emoji}
                 label="Emoji"
@@ -122,7 +122,7 @@ export default function KudoModal() {
         <br />
         <p className="text-blue-600 font-semibold mb-2">Preview</p>
         <div className="flex flex-col items-center md:flex-row gap-x-24 gap-y-2 md:gap-y-0">
-          <Kudo profile={user.profile} />
+          <Kudo profile={user.profile} kudo={formData} />
           <div className="flex-1" />
           <button className="rounded-xl bg-yellow-300 font-semibold text-blue-600 w-80 h-12 transition duration-300 ease-in-out hover:bg-yellow-400 hover:-translate-y-1">
             Send
