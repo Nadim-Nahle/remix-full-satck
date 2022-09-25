@@ -52,7 +52,15 @@ export default function ProfileModal() {
     department: user.profile.department,
   });
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    if (!firstLoad.current) {
+      setFormError("");
+    }
+  }, [formData]);
+
+  useEffect(() => {
+    firstLoad.current = false;
+  }, []);
 
   const handleInputChange = (
     event: React.ChangeEvent<HTMLInputElement>,
