@@ -38,10 +38,13 @@ export default function KudoModal() {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     field: string
   ) => {
-    setFormData((form) => ({ ...form, style: {
-      ...form.style,
-      [field]: e.target.value
-    } }));
+    setFormData((form) => ({
+      ...form,
+      style: {
+        ...form.style,
+        [field]: e.target.value,
+      },
+    }));
   };
 
   const getOptions = (data: any) =>
@@ -93,7 +96,27 @@ export default function KudoModal() {
                 label="Background Color"
                 containerClassName="w-36"
                 className="w-full rounded-xl px-3 py-2 text-gray-400"
-                onChange={e => }
+                onChange={(e) => handleStyleChange(e, "backgroundColor")}
+              />
+            <div className="flex flex-col items-center md:flex-row md:justify-start gab-x-4">
+              <SelectBox
+                options={colors}
+                name="textColor"
+                value={formData.style.textColor}
+                label="Text Color"
+                containerClassName="w-36"
+                className="w-full rounded-xl px-3 py-2 text-gray-400"
+                onChange={(e) => handleStyleChange(e, "textColor")}
+              />
+            <div className="flex flex-col items-center md:flex-row md:justify-start gab-x-4">
+              <SelectBox
+                options={colors}
+                name="emojis"
+                value={formData.style.emoji}
+                label="Background Color"
+                containerClassName="w-36"
+                className="w-full rounded-xl px-3 py-2 text-gray-400"
+                onChange={(e) => handleStyleChange(e, "emojis")}
               />
             </div>
           </div>
