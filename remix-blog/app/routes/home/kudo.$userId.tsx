@@ -40,6 +40,7 @@ export default function KudoModal() {
     }, []);
 
   const colors = getOptions(colorMap);
+  const emojis = getOptions(emojiMap);
 
   const { recipient } = useLoaderData();
   return (
