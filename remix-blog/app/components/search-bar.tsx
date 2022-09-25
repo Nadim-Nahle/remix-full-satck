@@ -46,8 +46,8 @@ export function SearchBar() {
       </button>
       {searchParams.get("filter") && (
         <button
-          type="submit"
           className="rounded-xl bg-red-300 font-semibold text-blue-600 px-3 py-2 transition duration-300 ease-in-out hover:bg-yellow-300 "
+          onClick={clearFilter}
         >
           Clear Filters
         </button>
