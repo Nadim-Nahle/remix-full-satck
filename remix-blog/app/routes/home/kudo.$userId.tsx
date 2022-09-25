@@ -100,6 +100,9 @@ export default function KudoModal() {
   const { recipient, user } = useLoaderData();
   return (
     <Modal isOpen={true} className="w-2/3 p-10">
+      <div className="text-xs font-semibold text-center tracking-wide text-red-500 w-full mb-2">
+        {formError}
+      </div>
       <form method="post">
         <input type="hidden" value={recipient.id} name="recipientId" />
         <div className="flex flex-col md:flex-row gap-y-2 md:gapy-y-0">
