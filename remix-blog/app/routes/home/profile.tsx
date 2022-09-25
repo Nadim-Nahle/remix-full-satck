@@ -14,7 +14,11 @@ export const loader: LoaderFunction = async ({ request }) => {
 
 export default function ProfileModal() {
   const { user } = useLoaderData();
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState({
+    firstName: user.profile.firstName,
+    lastName: user.profile.lastName,
+    department: user.profile.department,
+  });
 
   return (
     <Modal isOpen={true} className="w-1/3">
