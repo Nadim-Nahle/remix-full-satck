@@ -8,6 +8,7 @@ import { getFilteredKudos, getRecentKudos } from "~/utils/kudo.server";
 import { Kudo } from "~/components/kudo";
 import { Kudo as Ikudo, Profile } from "@prisma/client";
 import { RecentBar } from "~/components/recent-bar";
+import { SearchBar } from "~/components/search-bar";
 
 export const loader: LoaderFunction = async ({ request }) => {
   const userId = await requireUserId(request);
@@ -31,7 +32,7 @@ export default function Home() {
       <div className="h-full flex">
         <UserPanel users={users} />
         <div className="flex-1 flex flex-col">
-          {/*search bar*/}
+          <SearchBar />
           <div className="flex-1 flex">
             <div className="w-full p-10 flex flex-col gap-y-p">
               {kudos.map((kudo: KudoWithAuthor) => (
