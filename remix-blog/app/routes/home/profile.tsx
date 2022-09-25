@@ -75,6 +75,9 @@ export default function ProfileModal() {
         <h2 className="text-4xl font-semibold text-blue-600 text-center mb-4">
           Your Profile
         </h2>
+        <div className="text-xs font-semibold text-center tracking-wide text-red-500 w-full mb-2">
+          {formError}
+        </div>
         <div className="flex">
           <div className="w-1/3">{/*image uploader*/}</div>
           <div className="flex-1">
