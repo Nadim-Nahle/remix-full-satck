@@ -1,12 +1,20 @@
-import { json, LoaderFunction } from "@remix-run/node";
+import { ActionFunction, json, LoaderFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import React, { useState } from "react";
 import FormField from "~/components/form-field";
 import { Modal } from "~/components/modal";
 import { SelectBox } from "~/components/select-box";
-import { getUser } from "~/utils/auth.server";
+import { getUser, requireUserId } from "~/utils/auth.server";
 import { departments } from "~/utils/constants";
 
+export const action: ActionFunction;= async ({request}) => {
+    const userId = await requireUserId(request)
+    const form = await request.formData();
+    const action = form.get("_action");
+    let department = form.get("department");
+    let firstName = form.get("firstName");
+    let lastName = form.get("lastName");
+}
 export const loader: LoaderFunction = async ({ request }) => {
   const user = await getUser(request);
   return json({ user });
