@@ -13,6 +13,10 @@ import { SearchBar } from "~/components/search-bar";
 export const loader: LoaderFunction = async ({ request }) => {
   const userId = await requireUserId(request);
   const users = await getOtherUsers(userId);
+
+  const url = new URL(request.url);
+  const sort = url.searchParams.get("sort");
+  const filter = url.searchParams.get("filter");
   const kudos = await getFilteredKudos(userId, {}, {});
   const recentKudos = await getRecentKudos();
   return json({ users, kudos, recentKudos });
