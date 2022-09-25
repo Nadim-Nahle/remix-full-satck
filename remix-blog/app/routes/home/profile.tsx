@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import FormField from "~/components/form-field";
 import { Modal } from "~/components/modal";
 import { SelectBox } from "~/components/select-box";
-import handleRequest from "~/entry.server";
 import { getUser } from "~/utils/auth.server";
 import { departments } from "~/utils/constants";
 
@@ -34,7 +33,7 @@ export default function ProfileModal() {
         <h2 className="text-4xl font-semibold text-blue-600 text-center mb-4">
           Your Profile
         </h2>
-        <div className="fex">
+        <div className="flex">
           <div className="w-1/3">{/*image uploader*/}</div>
           <div className="flex-1">
             <form>
@@ -56,9 +55,18 @@ export default function ProfileModal() {
                 label="Department"
                 name="department"
                 options={departments}
-                value={FormData.department}
+                value={formData.department}
                 onChange={(e) => handleInputChange(e, "department")}
               />
+              <div className="w-full text-right mt-4">
+                <button
+                  name="_action"
+                  value="save"
+                  className="rounded-xl bg-yellow-500 font-semibold text-blue-600 w-32 h-12 transition duration-300 ease-in-out hover:bg-yellow-400 hover:-translate-y-1"
+                >
+                  save
+                </button>
+              </div>
             </form>
           </div>
         </div>
