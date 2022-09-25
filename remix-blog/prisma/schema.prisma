@@ -25,6 +25,7 @@ model Kudo {
   id          String     @id @default(auto()) @map("_id") @db.ObjectId
   createdAt   DateTime   @default(now())
   style       KudoStyle?
+  message     String
   author      User       @relation(references: [id], fields: [authorId], "AuthoredKudos")
   authorId    String     @db.ObjectId
   recipient   User       @relation(references: [id], fields: [recipientId], "RecievedKudos")
