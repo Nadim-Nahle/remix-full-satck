@@ -6,6 +6,7 @@ import { Modal } from "~/components/modal";
 import { SelectBox } from "~/components/select-box";
 import { getUser, requireUserId } from "~/utils/auth.server";
 import { departments } from "~/utils/constants";
+import { updateUser } from "~/utils/users.server";
 
 export const action: ActionFunction = async ({ request }) => {
   const userId = await requireUserId(request);
