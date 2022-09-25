@@ -1,5 +1,6 @@
 import { json, LoaderFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
+import { useState } from "react";
 import FormField from "~/components/form-field";
 import { Modal } from "~/components/modal";
 import { SelectBox } from "~/components/select-box";
@@ -13,6 +14,7 @@ export const loader: LoaderFunction = async ({ request }) => {
 
 export default function ProfileModal() {
   const { user } = useLoaderData();
+  const [formData, setFormData] = useState({});
 
   return (
     <Modal isOpen={true} className="w-1/3">
@@ -41,7 +43,7 @@ export default function ProfileModal() {
                 id="department"
                 label="Department"
                 name="department"
-                options={department}
+                options={departments}
                 value={FormData.department}
                 onChange={(e) => handleInputChange(e, "department")}
               />
