@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 interface props {
   children: React.ReactNode;
@@ -12,17 +13,17 @@ const createWrapper = (wrapperId: string) => {
   return wrapper;
 };
 
-export const Portal: React.FC<props> = ({chidlren, wrapperId}) => {
-    const [wrapper, setWrapper] = useState<HTMLElement | null>(null);
-    useEffect(()=>{
-        let element = document.getElementById(wrapperId)
-        let created = false;
-        if (created && element?.parentNode){
-            element.parentNode.removeChild(element)
-        }
-    },[wrapperId])
+export const Portal: React.FC<props> = ({ chidlren, wrapperId }) => {
+  const [wrapper, setWrapper] = useState<HTMLElement | null>(null);
+  useEffect(() => {
+    let element = document.getElementById(wrapperId);
+    let created = false;
+    if (created && element?.parentNode) {
+      element.parentNode.removeChild(element);
+    }
+  }, [wrapperId]);
 
-    if(wrapper == null)
+  if (wrapper == null) return null;
 
-    
-}
+  return createPortal(chidlren, wrapper);
+};
